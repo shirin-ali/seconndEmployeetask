@@ -4,7 +4,7 @@ departmentVar,dobVar,contactVar,emailvar,addressvar,pathOfimage = "image/default
 
 
 window.onload = function() {
-  if(localStorage>1)
+  if(employeeData.length>0)
 
  {
   console.log("employeeData");

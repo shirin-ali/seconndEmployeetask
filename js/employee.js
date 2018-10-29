@@ -107,12 +107,13 @@ var formValidate = function(){
   if(patternEmail.test(emailvar) == true) { 
       checkEmail= "true";
       msgDiv6.innerHTML ="";
-      for(var i =0;i<employeeData.length;i++){
+      if(employeeData)
+     { for(var i =0;i<employeeData.length;i++){
         if(emailvar == employeeData[i].email){
          msgDiv6.innerHTML =" email id already exist ";
          checkEmail= "false"; 
           }
-        }
+        }}
      }
  else{
     msgDiv6.innerHTML =" invalid email id";

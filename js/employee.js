@@ -195,7 +195,8 @@ var  updateView = function(arrayData){
    var  container_div = document.getElementById("container");
    container_div.classList.remove("form-hide");
    container_div.innerHTML = '';
-for(var index=0;index<arrayData.length;index++)
+   if(arrayData.length>0)
+{for(var index=0;index<arrayData.length;index++)
  {
  var cardDiv = document.createElement("div");
  cardDiv.className ="class-card";
@@ -339,7 +340,7 @@ deletelogo.onclick = function(){deleteDetail(event)};
  pathOfimage = "image/default-usertwo.jpg"
 
 
-}
+}}
 console.log(employeeData);
 }
 var  deleteDetail = function(event){

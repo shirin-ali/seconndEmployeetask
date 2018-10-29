@@ -3,9 +3,10 @@ checkDesignation,checkDepartment,checkDob,checkContact,checkEmail,checkAddress,n
 departmentVar,dobVar,contactVar,emailvar,addressvar,pathOfimage = "image/default-usertwo.jpg";
 
 window.onload = function() {
-  var retrievedObject = localStorage.getItem('employeeData');
+  if(localStorage)
+ { var retrievedObject = localStorage.getItem('employeeData');
   employeeData =JSON.parse(retrievedObject);
-  updateView(employeeData);
+  updateView(employeeData);}
 }
 var openModel = function(){
 modal = document.getElementById('myModal');
@@ -195,24 +196,24 @@ var  updateView = function(arrayData){
    var  container_div = document.getElementById("container");
    container_div.classList.remove("form-hide");
    container_div.innerHTML = '';
-   if(arrayData.length>0)
-{for(var index=0;index<arrayData.length;index++)
- {
- var cardDiv = document.createElement("div");
- cardDiv.className ="class-card";
- cardDiv.id =arrayData[index].cardClssId;
- var cardTitle = document.createElement("div");
- cardTitle.className ="card-title";
- cardTitle.innerHTML = arrayData[index].name.toUpperCase();
+if(arrayData){
+  for(var index=0;index<arrayData.length;index++)
+{
+var cardDiv = document.createElement("div");
+cardDiv.className ="class-card";
+cardDiv.id =arrayData[index].cardClssId;
+var cardTitle = document.createElement("div");
+cardTitle.className ="card-title";
+cardTitle.innerHTML = arrayData[index].name.toUpperCase();
 
- var carImageDiv = document.createElement("div");
- carImageDiv.className ="card-image-div";
- var cardImage = document.createElement("img");
- cardImage.className ="card-image";
- cardImage.src = arrayData[index].picture;
- cardImage.id ="set-image";
- carImageDiv.appendChild(cardImage);
- 
+var carImageDiv = document.createElement("div");
+carImageDiv.className ="card-image-div";
+var cardImage = document.createElement("img");
+cardImage.className ="card-image";
+cardImage.src = arrayData[index].picture;
+cardImage.id ="set-image";
+carImageDiv.appendChild(cardImage);
+
 var datalList = document.createElement("ul");
 datalList.classList ="form-style-1";
 
@@ -269,8 +270,8 @@ listItem4.appendChild(valuedata4);
 datalList.appendChild(listItem4);
 
 
- var listItem5 = document.createElement("li");
- var labeldata5 =document.createElement("input")
+var listItem5 = document.createElement("li");
+var labeldata5 =document.createElement("input")
 labeldata5.classList ="field-divided one";
 labeldata5.value = "Contact number";
 labeldata5.readOnly ="true";
@@ -322,26 +323,27 @@ deletelogo.id ="deletethis"+count;
 deletelogo.value =index;
 deletelogo.onclick = function(){deleteDetail(event)};
 
- cardDiv.appendChild(carImageDiv);
- cardDiv.appendChild(cardTitle);
- cardDiv.appendChild(datalList);
- cardDiv.appendChild(updatelogo);
- cardDiv.appendChild(deletelogo);
- container.appendChild(cardDiv);
+cardDiv.appendChild(carImageDiv);
+cardDiv.appendChild(cardTitle);
+cardDiv.appendChild(datalList);
+cardDiv.appendChild(updatelogo);
+cardDiv.appendChild(deletelogo);
+container.appendChild(cardDiv);
 
- document.getElementById("name").value = "";
- document.getElementById("designation").value = "";
- document.getElementById("department").value = "";
- document.getElementById("date-of-birth").value = "";
- document.getElementById("contact-number").value = "";
- document.getElementById("email").value = "";
- document.getElementById("address").value = "";
- document.getElementById("picture").value = "";
- pathOfimage = "image/default-usertwo.jpg"
+document.getElementById("name").value = "";
+document.getElementById("designation").value = "";
+document.getElementById("department").value = "";
+document.getElementById("date-of-birth").value = "";
+document.getElementById("contact-number").value = "";
+document.getElementById("email").value = "";
+document.getElementById("address").value = "";
+document.getElementById("picture").value = "";
+pathOfimage = "image/default-usertwo.jpg"
 
 
-}}
-console.log(employeeData);
+}
+}
+//console.log(employeeData);
 }
 var  deleteDetail = function(event){
     var deletevalue = event.currentTarget.value; 

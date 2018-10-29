@@ -2,11 +2,11 @@ var employeeData =[],count =0,edit = false,editIndex = "",modal,btn,span,checkNa
 checkDesignation,checkDepartment,checkDob,checkContact,checkEmail,checkAddress,namevar,
 departmentVar,dobVar,contactVar,emailvar,addressvar,pathOfimage = "image/default-usertwo.jpg";
 
-// window.onload = function() {
-//   var retrievedObject = localStorage.getItem('employeeData');
-//   employeeData =JSON.parse(retrievedObject);
-//   updateView(employeeData);
-// }
+window.onload = function() {
+  var retrievedObject = localStorage.getItem('employeeData');
+  employeeData =JSON.parse(retrievedObject);
+  updateView(employeeData);
+}
 var openModel = function(){
 modal = document.getElementById('myModal');
 btn = document.getElementById("myBtn");

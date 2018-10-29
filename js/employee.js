@@ -1,14 +1,17 @@
 var employeeData =[],count =0,edit = false,editIndex = "",modal,btn,span,checkName,
 checkDesignation,checkDepartment,checkDob,checkContact,checkEmail,checkAddress,namevar,
 departmentVar,dobVar,contactVar,emailvar,addressvar,pathOfimage = "image/default-usertwo.jpg";
+var checkArray =0;
 
 
 window.onload = function() {
-  if(employeeData.length>0)
+  checkArray = localStorage.getItem('checkArray','checkArray')
+  if(checkArray)
 
  {
   console.log("employeeData");
   var retrievedObject = localStorage.getItem('employeeData');
+  
   employeeData =JSON.parse(retrievedObject);
   updateView(employeeData);
  }
@@ -186,9 +189,12 @@ var  submitEmployeedata = function(){
                       picture :pathOfimage,
                       cardClssId : "card-class"+count
                      });
-
-    localStorage.setItem('employeeData', JSON.stringify(employeeData));
-    updateView(employeeData);
+                     ;
+                     localStorage.checkArray =1
+                     var abc = localStorage.getItem('checkArray','checkArray');
+                     console.log(abc);
+             localStorage.setItem('employeeData', JSON.stringify(employeeData));
+        updateView(employeeData);
    }
 
   }else{
@@ -197,6 +203,7 @@ var  submitEmployeedata = function(){
   }
 }
 var  updateView = function(arrayData){
+  console.log(" calling")
   modal = document.getElementById('myModal');
   modal.style.display = "none";
    var  container_div = document.getElementById("container");

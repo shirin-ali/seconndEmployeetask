@@ -4,10 +4,10 @@ departmentVar,dobVar,contactVar,emailvar,addressvar,pathOfimage = "image/default
 
 
 window.onload = function() {
-  if(localStorage)
+  if(localStorage>1)
 
  {
-  console.log(employeeData);
+  console.log("employeeData");
   var retrievedObject = localStorage.getItem('employeeData');
   employeeData =JSON.parse(retrievedObject);
   updateView(employeeData);
